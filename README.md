@@ -6,7 +6,7 @@ LiveReload plugin for Cordova/PhoneGap applications.
 ## Installation
 
 1. Install the [LiveReload][LiveReload] app.
-2. Install the [Apache Cordova][Cordova] CLI: `$ npm install -g cordova` (you may need to use `sudo`)
+2. Install the [Apache Cordova][Cordova] 3 CLI: `$ npm install -g cordova` (you may need to use `sudo`)
 3. `cd` into your Cordova app folder created using the `$ cordova create` command.
 4. Install GapReload: `$ cordova plugin add <repo> --variable SERVER_HOSTNAME="<host>"` where `repo` is `https://github.com/fingerproof/cordova-plugin-gapreload` and `host` typically is your localhost IP address.
 5. Follow GapReload instructions in your terminal window and you will be good to go.

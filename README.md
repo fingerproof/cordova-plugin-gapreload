@@ -1,7 +1,7 @@
 cordova-plugin-gapreload
 ========================
 
-LiveReload plugin for Cordova/PhoneGap applications.
+LiveReload plugin for Cordova/PhoneGap applications. [Watch the video demo][demo].
 
 ## Installation
 
@@ -49,3 +49,4 @@ Because you shouldn't let this plugin make it to production.
 [Cordova]: http://cordova.apache.org/docs/en/3.1.0/guide_cli_index.md.html#The%20Command-line%20Interface
 [whitelist]: http://cordova.apache.org/docs/en/3.1.0/guide_appdev_whitelist_index.md.html#Whitelist%20Guide
 [config]: http://cordova.apache.org/docs/en/3.1.0/config_ref_index.md.html#The%20config.xml%20File
+[demo]: https://vimeo.com/81192559

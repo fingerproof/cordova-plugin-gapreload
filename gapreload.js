@@ -22,20 +22,19 @@ function mergeParams (xml, defaults) {
 	// `module.id` stores `"pro.fing.cordova.gapreload.gapreload"`
 	// so we want to get rid of the extra `".gapreload"`
 	var params = getParams(xml, module.id.split(/\.[^.]+$/)[0]);
-	var used = {};
+	var merged = {};
 	params.forEach(function (param) {
 		// `param.name` and `param.value` don't work
 		var name = param.getAttribute("name");
 		var value = param.getAttribute("value");
-		// `value` has to be a replaced variable and can only be used once
-		if (used[name] || !value || value === "$" + name) { return; }
-		defaults[name] = used[name] = value;
-		//if (value && value !== "$" + name) { defaults[name] = value; }
+		// `value` has to be a replaced variable and can only be merged once
+		if (merged[name] || !value || value === "$" + name) { return; }
+		defaults[name] = merged[name] = value;
 	});
 	return defaults;
 }
 
-function getOrigin (ip, port) { return "http://" + ip + ":" + port + "/"; }
+function getOrigin (name, port) { return "http://" + name + ":" + port + "/"; }
 
 function addScript (url) {
 	var scriptToAdd = document.createElement("script");
@@ -48,7 +47,7 @@ getXML("config", function (config) {
 	config = mergeParams(config, { SERVER_PORT: 8000, LIVERELOAD_PORT: 35729 });
 	// first loading only, and skip it directly if accessed from desktop
 	if (!/^http/.test(location)) {
-		// wait until your server runs and confirm to use GapReload
+		// wait until the server runs and confirm to use GapReload
 		if (!confirm("Do you want to use GapReload?")) { return; }
 		var serverOrigin = getOrigin(config.SERVER_HOSTNAME, config.SERVER_PORT);
 		// this typically equals `["/www/index.hml"]`

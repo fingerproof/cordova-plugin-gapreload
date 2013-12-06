@@ -6,8 +6,8 @@ LiveReload plugin for Cordova/PhoneGap applications.
 ## Installation
 
 1. Install the [LiveReload][LiveReload] app.
-2. Install the [Apache Cordova][Cordova] 3 CLI: `$ npm install -g cordova` (you may need to use `sudo`)
-3. `cd` into your Cordova app folder created using the `$ cordova create` command.
+2. Install the [Apache Cordova][Cordova] 3 CLI: `$ npm install -g cordova` (you may need to use `sudo`).
+3. `cd` into your Cordova app folder previously created using the `$ cordova create` command.
 4. Install GapReload: `$ cordova plugin add <repo> --variable SERVER_HOSTNAME="<host>"` where `repo` is `https://github.com/fingerproof/cordova-plugin-gapreload` and `host` typically is your localhost IP address (static is better).
 5. Follow GapReload instructions in your terminal window and you will be good to go.
 
@@ -21,9 +21,9 @@ The `SERVER_HOSTNAME` variable is mandatory. Other available variables are:
 | LIVERELOAD_HOSTNAME | SERVER_HOSTNAME |
 | LIVERELOAD_PORT     | 35729           |
 
-Generally you should not modify those values but, if you have to, just know that you can.
+Generally you should not modify those values but, if you really have to, just know that you can.
 
-Setting values for `SERVER_HOSTNAME` and `SERVER_HOSTNAME` using the CLI will also automagically [whitelst][whitelist] them for you.
+Setting values for `SERVER_HOSTNAME` and `SERVER_HOSTNAME` using the CLI will also automagically [whitelist][whitelist] them for you.
 
 But you can also declare/override values in your *[www/config.xml][config]* file like so:
 

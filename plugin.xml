@@ -12,6 +12,8 @@
 
 	<engines><engine name="cordova" version=">=3.2.0"/></engines>
 	<dependency id="org.apache.cordova.device"/>
+	<dependency id="com.ququplay.websocket.WebSocket"
+		url="https://github.com/mkuklis/phonegap-websocket"/>
 	<preference name="SERVER_HOSTNAME"/>
 
 	<js-module src="gapreload.js" name="gapreload"><runs/></js-module>
@@ -34,8 +36,6 @@
 	</config-file>
 
 	<platform name="android">
-		<dependency id="com.ququplay.websocket.WebSocket"
-			url="https://github.com/mkuklis/phonegap-websocket"/>
 		<config-file target="res/xml/config.xml"
 			parent="/*">
 			<access origin="*://$SERVER_HOSTNAME"/>

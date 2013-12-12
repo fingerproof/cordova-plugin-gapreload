@@ -34,6 +34,8 @@
 	</config-file>
 
 	<platform name="android">
+		<dependency id="com.ququplay.websocket.WebSocket"
+			url="https://github.com/mkuklis/phonegap-websocket"/>
 		<config-file target="res/xml/config.xml"
 			parent="/*">
 			<access origin="*://$SERVER_HOSTNAME"/>

@@ -82,5 +82,11 @@
 
 	Finally, make sure the LiveReload app is running and, in the running app,
 	accept to use GapReload and enjoy working without recompiling everytime :)
+
+	** Using grunt-gapreload **
+
+	Obviously, you won't depend on the LiveReload app anymore, so close it.
+	And this is the command you'll want to run for the whole thing to work:
+		$ cordova &lt;emulate|run&gt; [platform...] &amp;&amp; grunt gapreload-watch
 	</info>
 </plugin>

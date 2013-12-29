@@ -1,13 +1,15 @@
 cordova-plugin-gapreload
 ========================
 
-LiveReload plugin for Cordova/PhoneGap applications. [Watch the video demo][demo].
+*LiveReload* plugin for *Cordova/PhoneGap* applications. [Watch the video demo][demo].
 
 ## Installation
 
+Note: if you use the *grunt-gapreload* task, skip these steps and follow [the proper documentation][grunt-gapreload] instead.
+
 1. Install the [LiveReload][LiveReload] app (latest version can be found [here][latest]).
 2. Install the [Apache Cordova][Cordova] 3 CLI: `$ npm install -g cordova` (you may need to use `sudo`).
-3. `cd` into your Cordova app folder previously created using the `$ cordova create` command.
+3. `cd` into your Cordova app folder previously created using the `cordova create` command.
 4. Install GapReload: `$ cordova plugin add <repo> --variable SERVER_HOSTNAME="<host>"` where `repo` is `https://github.com/fingerproof/cordova-plugin-gapreload` and `host` typically is your localhost IP address (static is better).
 5. Follow GapReload instructions in your terminal window and you will be good to go.
 
@@ -38,12 +40,15 @@ But you can also declare/override values in your *[www/config.xml][config]* file
 
 ## Removal
 
+Note: if you use the *grunt-gapreload* task, skip these steps and follow [the proper documentation][grunt-gapreload] instead.
+
 Because you shouldn't let this plugin make it to production.
 
 1. `cd` into your Cordova app folder.
-2. Enter `$ cordova plugin remove pro.fing.cordova.gapreload`.
+2. Execute `$ cordova plugin remove pro.fing.cordova.gapreload`.
 3. That's it, GapReload is gone for good.
 
+[grunt-gapreload]: https://github.com/fingerproof/grunt-gapreload
 [LiveReload]: http://livereload.com/
 [latest]: http://feedback.livereload.com/knowledgebase/articles/67441-how-do-i-start-using-livereload-
 [Cordova]: http://cordova.apache.org/docs/en/3.1.0/guide_cli_index.md.html#The%20Command-line%20Interface

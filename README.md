@@ -7,6 +7,8 @@ cordova-plugin-gapreload
 
 Note: if you use the *grunt-gapreload* task, skip these steps and follow [the proper documentation][grunt-gapreload] instead.
 
+**Cordova 3.3** - For now, move *config.xml* back to the *www* folder (it won't break anything). I'm currently working on a better way to make the plugin work again without doing this (probably by writing configuration values in the *index.html* file itself). Please be patient, this is a temporary solution.
+
 1. Install the [LiveReload][LiveReload] app (latest version can be found [here][latest]).
 2. Install the [Apache Cordova][Cordova] 3 CLI: `$ npm install -g cordova` (you may need to use `sudo`).
 3. `cd` into your Cordova app folder previously created using the `cordova create` command.
@@ -47,6 +49,10 @@ Because you shouldn't let this plugin make it to production.
 1. `cd` into your Cordova app folder.
 2. Execute `$ cordova plugin remove pro.fing.cordova.gapreload`.
 3. That's it, GapReload is gone for good.
+
+## Weird stuff to investigate
+
+- I noticed that when using Chrome 32.0.1700.107 and LiveReload 2.3.34, once every two page refresh, the *livereload.js* file doesn't load at all. An error is thrown and this is what I get for this particular request in the developer tools: *caution provisional headers are shown*...
 
 [grunt-gapreload]: https://github.com/fingerproof/grunt-gapreload
 [LiveReload]: http://livereload.com/

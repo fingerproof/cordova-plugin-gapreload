@@ -67,7 +67,7 @@
 
 	How to configure your LiveReload app in 3 steps (one time setup):
 		1) Add the project's cordova root folder to LiveReload
-		2) Add the *platforms* and *plugins* subfolders to the ignore list
+		2) Add the *hooks*, *platforms* and *plugins* subfolders to the ignore list
 		3) Set `cordova prepare` as the custom to run after changes
 
 	Using your terminal inside the project's cordova root folder, execute

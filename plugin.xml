@@ -1,92 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-	id="pro.fing.cordova.gapreload"
-	version="0.1.2">
-	<name>GapReload</name>
-	<description>Cordova/PhoneGap LiveReload Plugin</description>
-	<keywords>cordova,phonegap,live,reload,livereload,plugin</keywords>
-	<author href="http://fingerproof.net">fingerproof</author>
-	<repo>https://github.com/fingerproof/cordova-plugin-gapreload.git</repo>
-	<issue>https://github.com/fingerproof/cordova-plugin-gapreload/issues</issue>
-	<license>MIT</license>
+  id="pro.fing.cordova.gapreload" version="1.0.0">
+  <name>GapReload</name>
+  <description>Cordova/PhoneGap LiveReload Plugin</description>
+  <keywords>cordova,phonegap,live,reload,livereload,plugin,dev</keywords>
+  <author href="https://twitter.com/fingerproof">Sebastien Pittion</author>
+  <repo>https://github.com/fingerproof/cordova-plugin-gapreload.git</repo>
+  <issue>https://github.com/fingerproof/cordova-plugin-gapreload/issues</issue>
+  <license>MIT</license>
 
-	<engines><engine name="cordova" version=">=3.2.0"/></engines>
-	<dependency id="org.apache.cordova.device"/>
-	<dependency id="com.ququplay.websocket.WebSocket"
-		url="https://github.com/mkuklis/phonegap-websocket"/>
-	<preference name="SERVER_HOSTNAME"/>
+  <engines><engine name="cordova" version=">=3.2.0"/></engines>
+  <dependency id="org.apache.cordova.device"/>
+  <dependency id="com.ququplay.websocket.WebSocket"
+    url="https://github.com/mkuklis/phonegap-websocket"/>
+  <preference name="SERVER_HOST"/>
 
-	<js-module src="gapreload.js" name="gapreload"><runs/></js-module>
+  <asset src="gapreload.xml" target="gapreload.xml"/>
+  <js-module src="gapreload.js" name="gapreload"><runs/></js-module>
 
-	<config-file target="config.xml"
-		parent="/*">
-		<access origin="*://$SERVER_HOSTNAME"/>
-		<access origin="*://$LIVERELOAD_HOSTNAME"/>
-	</config-file>
-	<config-file target="www/config.xml"
-		parent="/*">
-		<feature name="pro.fing.cordova.gapreload"/>
-	</config-file>
-	<config-file target="www/config.xml"
-		parent="/*/feature[@name='pro.fing.cordova.gapreload']">
-		<param name="SERVER_HOSTNAME" value="$SERVER_HOSTNAME"/>
-		<param name="SERVER_PORT" value="$SERVER_PORT"/>
-		<param name="LIVERELOAD_HOSTNAME" value="$LIVERELOAD_HOSTNAME"/>
-		<param name="LIVERELOAD_PORT" value="$LIVERELOAD_PORT"/>
-	</config-file>
+  <config-file target="config.xml" parent="/*">
+    <access origin="*://$SERVER_HOST"/>
+    <access origin="*://$LIVERELOAD_HOST"/>
+  </config-file>
 
-	<platform name="android">
-		<config-file target="res/xml/config.xml"
-			parent="/*">
-			<access origin="*://$SERVER_HOSTNAME"/>
-			<access origin="*://$LIVERELOAD_HOSTNAME"/>
-		</config-file>
-		<config-file target="assets/www/config.xml"
-			parent="/*">
-			<feature name="pro.fing.cordova.gapreload"/>
-		</config-file>
-		<config-file target="assets/www/config.xml"
-			parent="/*/feature[@name='pro.fing.cordova.gapreload']">
-			<param name="SERVER_HOSTNAME" value="$SERVER_HOSTNAME"/>
-			<param name="SERVER_PORT" value="$SERVER_PORT"/>
-			<param name="LIVERELOAD_HOSTNAME" value="$LIVERELOAD_HOSTNAME"/>
-			<param name="LIVERELOAD_PORT" value="$LIVERELOAD_PORT"/>
-		</config-file>
-	</platform>
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <access origin="*://$SERVER_HOST"/>
+      <access origin="*://$LIVERELOAD_HOST"/>
+    </config-file>
+  </platform>
 
-	<platform name="blackberry10">
-		<config-file target="www/config.xml"
-			parent="/*">
-			<access origin="*://$SERVER_HOSTNAME"/>
-			<access origin="*://$LIVERELOAD_HOSTNAME"/>
-		</config-file>
-	</platform>
+  <platform name="blackberry10">
+    <config-file target="www/config.xml" parent="/*">
+      <access origin="*://$SERVER_HOST"/>
+      <access origin="*://$LIVERELOAD_HOST"/>
+    </config-file>
+  </platform>
 
-	<info>
-	--- GapReload usage ---
+  <config-file target="../../plugins/pro.fing.cordova.gapreload/gapreload.xml"
+    parent="/*">
+    <param name="SERVER_HOST" value="$SERVER_HOST"/>
+    <param name="SERVER_PORT" value="$SERVER_PORT"/>
+    <param name="LIVERELOAD_HOST" value="$LIVERELOAD_HOST"/>
+    <param name="LIVERELOAD_PORT" value="$LIVERELOAD_PORT"/>
+  </config-file>
 
-	How to configure your LiveReload app in 3 steps (one time setup):
-		1) Add the project's cordova root folder to LiveReload
-		2) Add the *hooks*, *platforms* and *plugins* subfolders to the ignore list
-		3) Set `cordova prepare` as the custom to run after changes
+  <info>
+  --- GapReload usage ---
 
-	Using your terminal inside the project's cordova root folder, execute
-	the following command (where you must choose between `emulate` and `run`,
-	and `platform` is optional and can be one or more valid platform names ;
-	you may also change the server `port` value which is `8000` by default):
-		$ cordova &lt;emulate|run&gt; [platform...] &amp;&amp; cordova serve [port]
+  How to configure your LiveReload app in 3 steps (one time setup):
+    1) Add the project's cordova root folder to LiveReload
+    2) Add the *hooks*, *platforms* and *plugins* subfolders to the ignore list
+    3) Set `cordova prepare` as the custom to run after changes
 
-	Then wait for the following message to show up (this is important):
-		Static file server running on port &lt;port&gt; (i.e. http://localhost:&lt;port&gt;)
-		CTRL + C to shut down
+  Using your terminal inside the project's cordova root folder, execute
+  the following command (where you must choose between `emulate` and `run`,
+  and `platform` is optional and can be one or more valid platform names ;
+  you may also change the server `port` value which is `8000` by default):
+    $ cordova &lt;emulate|run&gt; [platform...] &amp;&amp; cordova serve [port]
 
-	Finally, make sure the LiveReload app is running and, in the running app,
-	accept to use GapReload and enjoy working without recompiling everytime :)
+  Then wait for the following message to show up (this is important):
+    Static file server running on port &lt;port&gt; (i.e. http://localhost:&lt;port&gt;)
+    CTRL + C to shut down
 
-	** Using grunt-gapreload **
+  Finally make sure the LiveReload app is running and, in the running app,
+  accept to use GapReload, then enjoy working without recompiling everytime :)
 
-	Obviously, you won't depend on the LiveReload app anymore, so close it.
-	And this is the command you'll want to run for the whole thing to work:
-		$ cordova &lt;emulate|run&gt; [platform...] &amp;&amp; grunt gapreload-watch
-	</info>
+  ** Using grunt-gapreload **
+
+  Obviously, you won't depend on the LiveReload app anymore, so close it.
+  And this is the command you'll want to run for the whole thing to work:
+    $ cordova &lt;emulate|run&gt; [platform...] &amp;&amp; grunt gapreload-watch
+  </info>
 </plugin>

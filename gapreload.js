@@ -1,40 +1,35 @@
 /*jshint browser:true, devel:true */
-/*global module, device */
+/*global device */
 
 function getXML(path, callback) {
   var request = new XMLHttpRequest();
-  request.open('GET', path + '.xml', true);
+  request.open('GET', path + '.xml');
   request.overrideMimeType('text/xml');
   request.onreadystatechange = function () {
     if (request.readyState === 4) { callback(request.responseXML); }
   };
-  request.send(null);
+  request.send();
 }
 
-function getParams(xml, name) {
-  if (!xml) { return []; }
-  var selector = 'feature[name="' + name + '"]>param[name][value]';
-  // it must return a true array so that we can use `forEach` later
-  return [].slice.call(xml.querySelectorAll(selector));
+function getParams(xml) {
+  // It must return a true array so that we can use `forEach` later.
+  return xml ? [].slice.call(xml.querySelectorAll('param[name][value]')) : [];
 }
 
 function mergeParams(xml, defaults) {
-  // `module.id` stores `"pro.fing.cordova.gapreload.gapreload"`
-  // so we want to get rid of the extra `".gapreload"`
-  var params = getParams(xml, module.id.split(/\.[^.]+$/)[0]);
   var merged = {};
-  params.forEach(function (param) {
-    // `param.name` and `param.value` don't work
+  getParams(xml).forEach(function (param) {
+    // `param.name` and `param.value` don't work.
     var name = param.getAttribute('name');
     var value = param.getAttribute('value');
-    // `value` has to be a replaced variable and can only be merged once
+    // `value` has to be a replaced variable and can only be merged once.
     if (merged[name] || !value || value === '$' + name) { return; }
     defaults[name] = merged[name] = value;
   });
   return defaults;
 }
 
-function getOrigin(name, port) { return 'http://' + name + ':' + port + '/'; }
+function getOrigin(host, port) { return 'http://' + host + ':' + port + '/'; }
 
 function addScript(url) {
   var scriptToAdd = document.createElement('script');
@@ -43,22 +38,21 @@ function addScript(url) {
   script.parentNode.insertBefore(scriptToAdd, script);
 }
 
-getXML('config', function (config) {
+getXML('gapreload', function (config) {
   config = mergeParams(config, { SERVER_PORT: 8000, LIVERELOAD_PORT: 35729 });
-  // first loading only, and skip it directly if accessed from desktop
+  // First loading only, and skip it directly if accessed from desktop.
   if (!/^http/.test(location)) {
-    // wait until the server runs and confirm to use GapReload
+    // Wait until the server runs and confirm to use GapReload.
     if (!confirm('Do you want to use GapReload?')) { return; }
-    var serverOrigin = getOrigin(config.SERVER_HOSTNAME, config.SERVER_PORT);
-    // this typically equals `["/www/index.hml"]`
-    var contentPath = /\/www\/.+$/.exec(location);
+    var serverOrigin = getOrigin(config.SERVER_HOST, config.SERVER_PORT);
+    var contentPath = /\/www\/.+$/.exec(location)[0];
     return document.addEventListener('deviceready', function () {
       var platform = device.platform.toLowerCase();
-      // use `replace` so that it won't break the Android back button
+      // Use `replace` so that it won't break the Android back button.
       location.replace(serverOrigin + platform + contentPath);
     }, false);
   }
-  var livereloadHostName = config.LIVERELOAD_HOSTNAME || config.SERVER_HOSTNAME;
-  var liveReloadOrigin = getOrigin(livereloadHostName, config.LIVERELOAD_PORT);
+  var liveReloadHost = config.LIVERELOAD_HOST || config.SERVER_HOST;
+  var liveReloadOrigin = getOrigin(liveReloadHost, config.LIVERELOAD_PORT);
   addScript(liveReloadOrigin + 'livereload.js?snipver=1');
 });

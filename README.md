@@ -25,7 +25,7 @@ The `SERVER_HOST` variable is mandatory. Other available variables are:
 
 Generally you should not modify those values but, if you really have to, just know that you can.
 
-Setting values for `SERVER_HOST` and `SERVER_HOST` using the CLI will also automagically [whitelist][whitelist] them for you.
+Setting values for `SERVER_HOST` and `LIVRELOAD_HOST` using the CLI will also automagically [whitelist][whitelist] them for you.
 
 But you can also declare/override values in *plugins/pro.fing.cordova.gapreload/gapreload.xml* like so:
 

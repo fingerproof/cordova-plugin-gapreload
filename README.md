@@ -10,7 +10,7 @@ Note: if you use the *grunt-gapreload* task, skip these steps and follow [the pr
 1. Install the [LiveReload][LiveReload] app (latest version can be found [here][latest]).
 2. Install the [Apache Cordova][Cordova] 3 CLI: `$ npm install -g cordova` (you may need to use `sudo`).
 3. `cd` into your Cordova app folder previously created using the `cordova create` command.
-4. Install GapReload: `$ cordova plugin add <repo> --variable SERVER_HOST="<host>"` where `repo` is `https://github.com/fingerproof/cordova-plugin-gapreload` and `host` typically is your localhost IP address (static is better).
+4. Install GapReload: `$ cordova plugin add pro.fing.cordova.gapreload --variable SERVER_HOST="<host>"` where `<host>` typically is your localhost IP address (static is better).
 5. Follow GapReload instructions in your terminal window and you will be good to go.
 
 ## Configuration

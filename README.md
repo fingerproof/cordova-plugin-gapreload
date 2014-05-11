@@ -49,6 +49,10 @@ Because you shouldn't let this plugin make it to production.
 2. Execute `$ cordova plugin remove pro.fing.cordova.gapreload`.
 3. That's it, GapReload is gone for good.
 
+## TODO
+
+- Test on platforms other than iOS and Android and make it work if needed.
+
 ## Weird stuff to investigate
 
 - I noticed that when using Chrome 32.0.1700.107 and LiveReload 2.3.34, once every two page refresh, the *livereload.js* file doesn't load at all. An error is thrown and this is what I get for this particular request in the developer tools: *caution provisional headers are shown*...

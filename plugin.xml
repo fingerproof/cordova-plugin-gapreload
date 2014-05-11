@@ -18,10 +18,12 @@
   <asset src="gapreload.xml" target="gapreload.xml"/>
   <js-module src="gapreload.js" name="gapreload"><runs/></js-module>
 
-  <config-file target="config.xml" parent="/*">
-    <access origin="*://$SERVER_HOST"/>
-    <access origin="*://$LIVERELOAD_HOST"/>
-  </config-file>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <access origin="*://$SERVER_HOST"/>
+      <access origin="*://$LIVERELOAD_HOST"/>
+    </config-file>
+  </platform>
 
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">

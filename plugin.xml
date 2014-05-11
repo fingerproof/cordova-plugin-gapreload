@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-  id="pro.fing.cordova.gapreload" version="1.0.0">
+  id="pro.fing.cordova.gapreload" version="1.0.1">
   <name>GapReload</name>
   <description>Cordova/PhoneGap LiveReload Plugin</description>
   <keywords>cordova,phonegap,live,reload,livereload,plugin,dev</keywords>

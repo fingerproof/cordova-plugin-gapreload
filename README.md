@@ -49,6 +49,10 @@ Because you shouldn't let this plugin make it to production.
 2. Execute `$ cordova plugin remove pro.fing.cordova.gapreload`.
 3. That's it, GapReload is gone for good.
 
+## Notes
+
+- As GapReload will redirect your whole app to *http://$SERVER_HOST:$SERVER_PORT/*, cross-origin requests won't work anymore [without a proper configuration][cross-origin].
+
 ## TODO
 
 - Test on platforms other than iOS and Android and make it work if needed.
@@ -63,3 +67,4 @@ Because you shouldn't let this plugin make it to production.
 [Cordova]: http://cordova.apache.org/docs/en/3.1.0/guide_cli_index.md.html#The%20Command-line%20Interface
 [whitelist]: http://cordova.apache.org/docs/en/3.1.0/guide_appdev_whitelist_index.md.html#Whitelist%20Guide
 [demo]: https://vimeo.com/81192559
+[cross-origin]: https://github.com/fingerproof/cordova-plugin-gapreload/issues/2#issuecomment-45669557

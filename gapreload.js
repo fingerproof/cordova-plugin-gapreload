@@ -1,5 +1,5 @@
 /*jshint browser:true, devel:true */
-/*global device */
+/*global cordova */
 
 function getXML(path, callback) {
   var request = new XMLHttpRequest();
@@ -47,9 +47,8 @@ getXML('gapreload', function (config) {
     var serverOrigin = getOrigin(config.SERVER_HOST, config.SERVER_PORT);
     var contentPath = /\/www\/.+$/.exec(location)[0];
     return document.addEventListener('deviceready', function () {
-      var platform = device.platform.toLowerCase();
       // Use `replace` so that it won't break the Android back button.
-      location.replace(serverOrigin + platform + contentPath);
+      location.replace(serverOrigin + cordova.platformId + contentPath);
     }, false);
   }
   var liveReloadHost = config.LIVERELOAD_HOST || config.SERVER_HOST;

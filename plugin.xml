@@ -10,7 +10,6 @@
   <license>MIT</license>
 
   <engines><engine name="cordova" version=">=3.2.0"/></engines>
-  <dependency id="org.apache.cordova.device"/>
   <dependency id="com.ququplay.websocket.WebSocket"
     url="https://github.com/mkuklis/phonegap-websocket"/>
   <preference name="SERVER_HOST"/>

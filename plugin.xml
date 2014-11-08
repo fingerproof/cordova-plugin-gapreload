@@ -12,7 +12,6 @@
   <engines><engine name="cordova" version=">=3.2.0"/></engines>
   <dependency id="com.ququplay.websocket.WebSocket"
     url="https://github.com/mkuklis/phonegap-websocket"/>
-  <preference name="SERVER_HOST"/>
 
   <asset src="gapreload.xml" target="gapreload.xml"/>
   <js-module src="gapreload.js" name="gapreload"><runs/></js-module>
@@ -50,11 +49,11 @@
   --- GapReload usage ---
 
   How to configure your LiveReload app in 3 steps (one time setup):
-    1) Add the project's cordova root folder to LiveReload
+    1) Add the project's Cordova root folder to LiveReload
     2) Add the *hooks*, *platforms* and *plugins* subfolders to the ignore list
-    3) Set `cordova prepare` as the custom to run after changes
+    3) Set `cordova prepare` as the custom command to run after changes
 
-  Using your terminal inside the project's cordova root folder, execute
+  Using your terminal inside the project's Cordova root folder, execute
   the following command (where you must choose between `emulate` and `run`,
   and `platform` is optional and can be one or more valid platform names ;
   you may also change the server `port` value which is `8000` by default):
@@ -64,8 +63,9 @@
     Static file server running on port &lt;port&gt; (i.e. http://localhost:&lt;port&gt;)
     CTRL + C to shut down
 
-  Finally make sure the LiveReload app is running and, in the running app,
-  accept to use GapReload, then enjoy working without recompiling everytime :)
+  Finally make sure the LiveReload app is running and, in your running Cordova
+  app, accept to use GapReload tweaking the server host and port values if
+  necessary then enjoy working without recompiling everytime :)
 
   ** Using grunt-gapreload **
 

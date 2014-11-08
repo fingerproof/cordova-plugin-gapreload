@@ -12,7 +12,7 @@ function getXML(path, callback) {
 }
 
 function getParams(xml) {
-  // It must return a true array so that we can use `forEach` later.
+  // Must return a true array so that we can call `forEach` later.
   return xml ? [].slice.call(xml.querySelectorAll('param[name][value]')) : [];
 }
 
@@ -40,16 +40,14 @@ function addScript(url) {
 
 getXML('gapreload', function (config) {
   config = mergeParams(config, { SERVER_PORT: 8000, LIVERELOAD_PORT: 35729 });
-  // First loading only, and skip it directly if accessed from desktop.
+  // First loading only, skip it directly if accessed from desktop.
   if (!/^http/.test(location)) {
-    // Wait until the server runs and confirm to use GapReload.
+    // Wait until the server is running and confirm to use GapReload.
     if (!confirm('Do you want to use GapReload?')) { return; }
     var serverOrigin = getOrigin(config.SERVER_HOST, config.SERVER_PORT);
     var contentPath = /\/www\/.+$/.exec(location)[0];
-    return document.addEventListener('deviceready', function () {
-      // Use `replace` so that it won't break the Android back button.
-      location.replace(serverOrigin + cordova.platformId + contentPath);
-    }, false);
+    // Use `replace` so that it doesn't break the Android back button.
+    location.replace(serverOrigin + cordova.platformId + contentPath);
   }
   var liveReloadHost = config.LIVERELOAD_HOST || config.SERVER_HOST;
   var liveReloadOrigin = getOrigin(liveReloadHost, config.LIVERELOAD_PORT);

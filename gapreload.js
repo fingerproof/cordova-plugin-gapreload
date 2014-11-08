@@ -29,7 +29,9 @@ function mergeParams(xml, defaults) {
   return defaults;
 }
 
-function getOrigin(host, port) { return 'http://' + host + ':' + port + '/'; }
+function getOrigin(host, port) {
+  return 'http://' + (host || location.hostname) + ':' + port + '/';
+}
 
 function addScript(url) {
   var scriptToAdd = document.createElement('script');
@@ -42,9 +44,10 @@ getXML('gapreload', function (config) {
   config = mergeParams(config, { SERVER_PORT: 8000, LIVERELOAD_PORT: 35729 });
   // First loading only, skip it directly if accessed from desktop.
   if (!/^http/.test(location)) {
-    // Wait until the server is running and confirm to use GapReload.
-    if (!confirm('Do you want to use GapReload?')) { return; }
     var serverOrigin = getOrigin(config.SERVER_HOST, config.SERVER_PORT);
+    serverOrigin = prompt('Do you want to use GapReload?', serverOrigin);
+    // Wait until the server is running and confirm to use GapReload.
+    if (!serverOrigin) { return; }
     var contentPath = /\/www\/.+$/.exec(location)[0];
     // Use `replace` so that it doesn't break the Android back button.
     location.replace(serverOrigin + cordova.platformId + contentPath);

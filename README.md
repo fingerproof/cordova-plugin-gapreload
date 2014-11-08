@@ -1,7 +1,7 @@
 cordova-plugin-gapreload
 ========================
 
-*LiveReload* plugin for *Cordova/PhoneGap* applications. [Watch the video demo][demo].
+*LiveReload* plugin for *Cordova/PhoneGap* applications. [Watch the video demo][demo] (installation procedure a bit outdated, see below instead).
 
 ## Installation
 
@@ -10,12 +10,12 @@ Note: if you use the *grunt-gapreload* task, skip these steps and follow [the pr
 1. Install the [LiveReload][LiveReload] app (latest version can be found [here][latest]).
 2. Install the [Apache Cordova][Cordova] 3 CLI: `$ npm install -g cordova` (you may need to use `sudo`).
 3. `cd` into your Cordova app folder previously created using the `cordova create` command.
-4. Install GapReload: `$ cordova plugin add pro.fing.cordova.gapreload --variable SERVER_HOST="<host>"` where `<host>` typically is your localhost IP address (static is better).
+4. Install GapReload: `$ cordova plugin add pro.fing.cordova.gapreload --variable SERVER_HOST="<host>"` where `<host>` typically is your localhost IP address (static is better). Note that passing the `SERVER_HOST` is now optional since the plugin will also prompt you to set it at runtime.
 5. Follow GapReload instructions in your terminal window and you will be good to go.
 
 ## Configuration
 
-The `SERVER_HOST` variable is mandatory. Other available variables are:
+The `SERVER_HOST` variable is somehow mandatory. Other available variables are:
 
 | Variable name   | Default value |
 |-----------------|---------------|

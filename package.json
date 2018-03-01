@@ -1,0 +1,26 @@
+{
+  "name": "cordova-plugin-gapreload",
+  "version": "1.1.0",
+  "description": "LiveReload plugin for Cordova/PhoneGap applications.",
+  "main": "gapreload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dominicrico/cordova-plugin-gapreload.git"
+  },
+  "keywords": [
+    "cordova",
+    "gapreload",
+    "plugin",
+    "phonegap",
+    "ionic"
+  ],
+  "author": "Sebastien Pittion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dominicrico/cordova-plugin-gapreload/issues"
+  },
+  "homepage": "https://github.com/dominicrico/cordova-plugin-gapreload#readme"
+}

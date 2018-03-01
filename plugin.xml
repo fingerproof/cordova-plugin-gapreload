@@ -11,7 +11,7 @@
 
   <engines><engine name="cordova" version=">=3.2.0"/></engines>
   <dependency id="com.ququplay.websocket.WebSocket"
-    url="https://github.com/mkuklis/phonegap-websocket"/>
+    url="https://github.com/dominicrico/phonegap-websocket"/>
 
   <asset src="gapreload.xml" target="gapreload.xml"/>
   <js-module src="gapreload.js" name="gapreload"><runs/></js-module>
